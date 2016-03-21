@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>card-data demo</title>
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="card-data.html">
+  </head>
+  <body>
+    <h3>card-data Demo</h3>
+    <template is="dom-bind">
+      <card-data cards="{{cards}}" location="https://open-elements.firebaseio.com/all/" user-id="marcus6666"></card-data>
+      <template is="dom-repeat" items="{{cards}}" as="card">
+        title {{card.title}}<br>
+        image {{card.image}}<br>
+        url {{card.url}}<br>
+        download {{card.download}}<br>
+        data {{card.data}}
+        <hr>
+      </template>
+    </template>
+  </body>
+</html>
