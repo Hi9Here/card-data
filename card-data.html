@@ -2,7 +2,7 @@
 <link rel="import" href="../icon-icons/iron-icons.html">
 <link rel="import" href="../polymer/polymer.html">
 <!--
-`<card-data cards="{{cards}}" location="{{location}}"></card-data>` CRUD for card data
+`<card-data cards="{{cards}}" location="{{location}}" user-id="marcus6666"></card-data>` CRUD for card data
 
 - [-] create
 - [✓] read
@@ -21,7 +21,7 @@ exposes an array of cards
 -->
 <dom-module id="card-data">
   <template>
-    <mediator-data as-array="{{cards}}" location="{{location}}" folder="marcus6666"></mediator-data>
+    <mediator-data as-array="{{cards}}" location="{{location}}" folder="{{userId}}"></mediator-data>
   /template>
 </dom-module>
 <script>
