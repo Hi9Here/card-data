@@ -4,9 +4,9 @@
 <!--
 `<card-data></card-data>` CRUD for card data
 
-- [ ] create
+- [-] create
 - [✓] read
-- [ ] update
+- [-] update
 - [ ] delete
 
 exposes an array of cards
@@ -31,6 +31,12 @@ exposes an array of cards
       cards: {
         notify: true
       }
+    },
+    addCard: function(card) {if (card && card.title && card.image && card.url && card.download && card.data) {
+      return this.$.c.push(card)
+    }},
+    deleteCard: function(index) {
+      return this.splice("cards", index)
     }
   })
 </script>
