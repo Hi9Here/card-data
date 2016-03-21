@@ -1,15 +1,36 @@
+<link rel="import" href="/bower_components/mediator-data/mediator-data.html">
+<link rel="import" href="/bower_components/icon-icons/iron-icons.html">
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<!--
+`<card-data></card-data>` CRUD for card data
+
+- [ ] create
+- [✓] read
+- [ ] update
+- [ ] delete
+
+exposes an array of cards
+
+- [ ] Title
+- [ ] image
+- [ ] url
+- [ ] download
+- [ ] object associated with card
+
+@demo demo.html
+-->
 <dom-module id="card-data">
-<template>
-<mediator-data as-array="{{cards}}" location="{{location}}" folder="marcus6666"></mediator-data>
-</template>
+  <template>
+    <mediator-data as-array="{{cards}}" location="{{location}}" folder="marcus6666"></mediator-data>
+  /template>
 </dom-module>
 <script>
-Polymer({
-  is: "card-data",
-  properties: {
-    cards: {
-      notify: true
+  Polymer({
+    is: "card-data",
+    properties: {
+      cards: {
+        notify: true
+      }
     }
-  }
-})
+  })
 </script>
