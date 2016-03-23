@@ -9,7 +9,6 @@
   ],
   "dependencies": {
     "polymer": "*",
-    "icon-icons": "*",
     "mediator-data": "marcus7777/mediator-data#5201d145d6"
   }
 }
