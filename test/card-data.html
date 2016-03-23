@@ -40,6 +40,53 @@
           })
         })
       })
+      /*
+      suite('basic usage Admin', function () {
+        s = document.getElementById('s')
+        // TODO CORE
+        test('firebase is available', function(done) {
+          setTimeout(step1.bind(this, userSurveysAdmin, done), stepTiming)
+          function step1(){
+            s.url = "https://open-elements.firebaseio.com/all/default/surveys/ggcchgcghcghch.json"
+            s.generateRequest()
+            setTimeout(step2.bind(this, done), stepTiming)
+          }
+          function step2(){
+            if (s.lastResponse === null && !s.lastError ) {
+              done()
+            } else {
+              setTimeout(step2.bind(this, done), stepTiming/2)
+            }
+          }
+        })
+        test('Admin Creates a Survey an the Data is Created', function(done) {
+          setTimeout(step1.bind(this, userSurveysAdmin, done), stepTiming)
+          function step1(){
+            MockInteractions.tap(userSurveysAdmin.querySelector("survey-input paper-fab"))
+            setTimeout(step2.bind(this, userSurveysAdmin, done), stepTiming)
+          }
+          function step2(){
+            userSurveysAdmin.querySelector("paper-textarea").value= "TEST"
+            setTimeout(step3.bind(this, userSurveysAdmin, done), stepTiming)
+          }
+          function step3(){
+            MockInteractions.tap(userSurveysAdmin.querySelector("paper-button")) // userSurveysAdmin.$$("paper-button")
+            setTimeout(step4.bind(this, userSurveysAdmin, done), stepTiming)
+          }
+          function step4(){
+            s.url = "https://open-elements.firebaseio.com/all/default/surveys/.json"
+            s.generateRequest()
+            setTimeout(step5.bind(this, done), stepTiming)
+          }
+          function step5(){
+            if (s.lastResponse && s.lastResponse["001"].question === "TEST") {
+              done()
+            } else {
+              setTimeout(step5.bind(this, done), stepTiming/2)
+            }
+          }
+        })
+        */
     </script>
   </body>
 </html>
