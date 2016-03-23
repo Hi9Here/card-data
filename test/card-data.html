@@ -25,27 +25,19 @@
         teardown(function () {
           //...
         });
-        suite('basic usage', function () {
-          test('can be triggered with space', function(done) {
-            cardData.addEventListener('keydown', function() {
-              done()
-            })
-            MockInteractions.pressSpace(cardData)
-          })
-          test('can be clicked', function(done) {
-            cardData.addEventListener('click', function() {
-              done()
-            })
-            MockInteractions.tap(cardData)
-          })
+        suite('CRUD local', function () {
+          debugger
+        })
+        suite('CRUD Firebace', function () {
+          
         })
       })
       /*
-      suite('basic usage Admin', function () {
+      suite('basic usage ', function () {
         s = document.getElementById('s')
         // TODO CORE
         test('firebase is available', function(done) {
-          setTimeout(step1.bind(this, userSurveysAdmin, done), stepTiming)
+          setTimeout(step1.bind(this, cardData, done), stepTiming)
           function step1(){
             s.url = "https://open-elements.firebaseio.com/all/default/surveys/ggcchgcghcghch.json"
             s.generateRequest()
@@ -59,19 +51,19 @@
             }
           }
         })
-        test('Admin Creates a Survey an the Data is Created', function(done) {
-          setTimeout(step1.bind(this, userSurveysAdmin, done), stepTiming)
+        test('Creates a card an the Data is Created', function(done) {
+          setTimeout(step1.bind(this, cardData, done), stepTiming)
           function step1(){
-            MockInteractions.tap(userSurveysAdmin.querySelector("survey-input paper-fab"))
-            setTimeout(step2.bind(this, userSurveysAdmin, done), stepTiming)
+            MockInteractions.tap(cardData.querySelector("survey-input paper-fab"))
+            setTimeout(step2.bind(this, cardData, done), stepTiming)
           }
           function step2(){
-            userSurveysAdmin.querySelector("paper-textarea").value= "TEST"
-            setTimeout(step3.bind(this, userSurveysAdmin, done), stepTiming)
+            cardData.querySelector("paper-textarea").value= "TEST"
+            setTimeout(step3.bind(this, cardData, done), stepTiming)
           }
           function step3(){
-            MockInteractions.tap(userSurveysAdmin.querySelector("paper-button")) // userSurveysAdmin.$$("paper-button")
-            setTimeout(step4.bind(this, userSurveysAdmin, done), stepTiming)
+            MockInteractions.tap(cardData.querySelector("paper-button")) // cardData.$$("paper-button")
+            setTimeout(step4.bind(this, cardData, done), stepTiming)
           }
           function step4(){
             s.url = "https://open-elements.firebaseio.com/all/default/surveys/.json"
