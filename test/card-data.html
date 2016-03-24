@@ -26,10 +26,29 @@
           //...
         });
         suite('CRUD local', function () {
-          debugger
+          test('can add to cards', function(done) {
+
+            cardData.addCard({title: "title",image:"image" , url: "url", download:"download", data: "data"})
+            
+            debugger
+          })
         })
         suite('CRUD Firebace', function () {
-          
+          test('firebase is available', function(done) {
+            setTimeout(step1.bind(this, cardData, done), stepTiming)
+            function step1(){
+              s.url = "https://open-elements.firebaseio.com/all/default/surveys/ggcchgcghcghch.json"
+              s.generateRequest()
+              setTimeout(step2.bind(this, done), stepTiming)
+            }
+            function step2(){
+              if (s.lastResponse === null && !s.lastError ) {
+                done()
+              } else {
+                setTimeout(step2.bind(this, done), stepTiming/2)
+              }
+            }
+          })          
         })
       })
       /*
