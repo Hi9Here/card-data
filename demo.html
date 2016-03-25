@@ -4,19 +4,43 @@
     <title>card-data demo</title>
     <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="card-data.html">
+    <link rel="import" href="../paper-input/paper-input.html">
+    <link rel="import" href="../paper-button/paper-button.html">
   </head>
   <body>
     <h3>card-data Demo</h3>
-    <template is="dom-bind">
-      <card-data cards="{{cards}}" location="https://open-elements.firebaseio.com/all/" user-id="marcus6666"></card-data>
+    <template id="t" is="dom-bind">
+      <card-data id=card cards="{{cards}}" location="https://open-elements.firebaseio.com/all/" user-id="marcus6666"></card-data>
       <template is="dom-repeat" items="{{cards}}" as="card">
         title {{card.title}}<br>
         image {{card.image}}<br>
         url {{card.url}}<br>
         download {{card.download}}<br>
         data {{card.data}}
+        <paper-button on-tap="remove" title="{{index}}">remove</paper-button>
         <hr>
       </template>
+      <h1>add card</h1>
+      <paper-input label="title" value="{{newCard.title}}"></paper-input><br>
+      <paper-input label="image" value="{{newCard.image}}"></paper-input><br>
+      <paper-input label="url" value="{{newCard.url}}"></paper-input><br>
+      <paper-input label="download" value="{{newCard.download}}"></paper-input><br>
+      <paper-input label="data" value="{{newCard.data}}"></paper-input><hr>
+      <paper-button on-tap="add">add</paper-button>
     </template>
   </body>
+  <script>
+    var t = document.querySelector('#t');
+
+    t.newCard = {}
+    t.remove = function(e) {
+      debugger
+      this.$.card.deleteCard(+e.target.title)
+    }
+    t.add = function() {
+      if (this.$.card.addCard(this.newCard)) {
+        this.set("newCard",{})
+      }
+    }
+  </script>
 </html>
