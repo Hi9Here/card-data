@@ -36,7 +36,7 @@ exposes an array of cards
       return this.$.c.push(card)
     }},
     deleteCard: function(index) {
-      return this.splice("cards", index)
+      return this.splice("cards", index, 1)
     }
   })
 </script>
