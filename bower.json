@@ -1,7 +1,7 @@
 {
   "name": "card-data",
   "version": "1.0.0",
-  "description": "CRUD for card data\n\n- [ ] create\n- [✓] read\n- [ ] update\n- [ ] delete\n\nexposes an array of cards\n\n- [ ] Title\n- [ ] image\n- [ ] url\n- [ ] download\n- [ ] object associated with card\n",
+  "description": "CRUD for card data, exposes an array of cards",
   "main": "card-data.html",
   "keywords": [
     "polymer",
