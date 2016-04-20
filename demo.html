@@ -6,11 +6,14 @@
     <link rel="import" href="card-data.html">
     <link rel="import" href="../paper-input/paper-input.html">
     <link rel="import" href="../paper-button/paper-button.html">
+    <link rel="import" href="../lunr-js/lunr-js.html">
   </head>
   <body>
     <h3>card-data Demo</h3>
     <template id="t" is="dom-bind">
-      <card-data id=card cards="{{cards}}" location="https://open-elements.firebaseio.com/all/" user-id="marcus6666" token="{{token}}"></card-data>
+      
+      <card-data id="card" cards="{{cards}}" location="https://open-elements.firebaseio.com/all/" user-id="marcus6666" token="{{token}}"></card-data>
+      
       <h1>Create card</h1>
       <paper-input label="title" value="{{newCard.title}}"></paper-input><br>
       <paper-input label="image" value="{{newCard.image}}"></paper-input><br>
@@ -18,15 +21,20 @@
       <paper-input label="download" value="{{newCard.download}}"></paper-input><br>
       <paper-input label="data" value="{{newCard.data}}"></paper-input><hr>
       <paper-button on-tap="add">add</paper-button>
+      
       <h1>Read Cards</h1>
-      <template is="dom-repeat" items="{{cards}}" as="card">
-        title {{card.title}}<br>
-        image {{card.image}}<br>
-        url {{card.url}}<br>
-        download {{card.download}}<br>
-        data {{card.data}}
+      <paper-input label="filter" value="{{search}}"></paper-input>
+      <lunr-js no-stop-words data="{{cards}}" search="{{search}}" output="{{output}}" ></lunr-js>
+      
+      <template is="dom-repeat" items="{{output}}" as="card">
+        title {{card.title}}<br />
+        image {{card.image}}<br />
+        url {{card.url}}<br />
+        download {{card.download}}<br />
+        data {{card.data}}<br />
         <hr>
       </template>
+      
       <h1>Update Cards</h1>
       <template is="dom-repeat" items="{{cards}}" as="card">
         <paper-input label="title" value="{{card.title}}"></paper-input><br>
@@ -36,21 +44,14 @@
         <paper-input label="data" value="{{card.data}}"></paper-input><hr>
         <hr>
       </template>
-      <h1>Update Cards</h1>
-      <template is="dom-repeat" items="{{cards}}" as="card">
-        <paper-input label="title" value="{{card.title}}"></paper-input><br>
-        <paper-input label="image" value="{{card.image}}"></paper-input><br>
-        <paper-input label="url" value="{{card.url}}"></paper-input><br>
-        <paper-input label="download" value="{{card.download}}"></paper-input><br>
-        <paper-input label="data" value="{{card.data}}"></paper-input><hr>
-        <hr>
-      </template>
+      
       <h1>Delete Cards</h1>
       <template is="dom-repeat" items="{{cards}}" as="card">
         title {{card.title}}<br>
         <paper-button on-tap="remove" title="{{index}}">remove</paper-button>
         <hr>
       </template>
+      
     </template>
   </body>
   <script>
