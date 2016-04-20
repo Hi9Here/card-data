@@ -26,6 +26,10 @@
       <paper-input label="filter" value="{{search}}"></paper-input>
       <lunr-js no-stop-words data="{{cards}}" search="{{search}}" output="{{output}}" ></lunr-js>
       
+      <template is="dom-if" if="{{!output.length}}">
+        <a href?="https://www.google.com/search?q={{search}}">Google it</a>
+      </template>
+      
       <template is="dom-repeat" items="{{output}}" as="card">
         title {{card.title}}<br />
         image {{card.image}}<br />
