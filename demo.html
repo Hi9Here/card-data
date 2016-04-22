@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>card-data demo</title>
-    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="card-data.html">
     <link rel="import" href="../paper-input/paper-input.html">
     <link rel="import" href="../paper-button/paper-button.html">
@@ -11,6 +11,9 @@
     <link rel="import" href="../paper-material/paper-material.html">
     <link rel="import" href="../update-data/update-data.html">
     <link rel="import" href="../lunr-js/lunr-js.html">
+    <link rel="import" href="../card-deck/card-deck.html">
+    <link rel="import" href="../card-display/card-display.html">
+   
   </head>
   <body style="background:#f4f4f4">
     <h3>card-data Demo</h3>
@@ -19,16 +22,7 @@
       <card-data id="card" cards="{{cards}}" location="https://open-elements.firebaseio.com/all/" user-id="marcus6666" token="{{token}}"></card-data>
       
       <h1>Sort Cards</h1>
-      <sortable-list sort-me="{{cards}}" output="{{sortMe}}">
-        <template is="dom-repeat" items="{{sortMe}}" as="card">
-          <paper-material elevation="4" style="margin:12px 7px;background:#fff;display:inline-block;width:200px;height:250px">
-            <a href="{{card.url}}" target="_blank" style="text-decoration: initial;color: black"><div style="background-size:cover;background-position: center;display:inline-block;width:200px;height:147px;background-image:url({{card.image}});background-repeat: no-repeat;"></div></a><br />
-            <a href="{{card.url}}" style="text-decoration: initial;color: black"><h3 style="margin: 0; padding: 13px;">{{card.title}}</h3></a>
-            <a href="{{card.url}}" style="text-decoration: initial;color: black"><p style="margin: 0; padding: 0 13px;">{{card.data}}</p></a>
-          </paper-material>
-        </template>
-      </sortable-list>
-      <update-data update="{{cards}}" data="{{sortMe}}"></update-data> 
+      <card-display cards="{{sortMe}}"></card-display>
 
       <h1>Create card</h1>
       <paper-input label="title" value="{{newCard.title}}"></paper-input><br>
