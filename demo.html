@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
   <head>
@@ -7,24 +8,27 @@
     <link rel="import" href="../paper-input/paper-input.html">
     <link rel="import" href="../paper-button/paper-button.html">
     <link rel="import" href="../sortable-list/sortable-list.html">
+    <link rel="import" href="../paper-material/paper-material.html">
+    <link rel="import" href="../update-data/update-data.html">
     <link rel="import" href="../lunr-js/lunr-js.html">
   </head>
-  <body>
+  <body style="background:#f4f4f4">
     <h3>card-data Demo</h3>
     <template id="t" is="dom-bind">
       
       <card-data id="card" cards="{{cards}}" location="https://open-elements.firebaseio.com/all/" user-id="marcus6666" token="{{token}}"></card-data>
       
       <h1>Sort Cards</h1>
-      <sortable-list content="{{cards}}" output="{{sortMe}}">
+      <sortable-list sort-me="{{cards}}" output="{{sortMe}}">
         <template is="dom-repeat" items="{{sortMe}}" as="card">
-          <div>{{card.title}}</div>
+          <paper-material elevation="4" style="margin:12px 7px;background:#fff;display:inline-block;width:200px;height:250px">
+            <a href="{{card.url}}" target="_blank" style="text-decoration: initial;color: black"><div style="background-size:cover;background-position: center;display:inline-block;width:200px;height:147px;background-image:url({{card.image}});background-repeat: no-repeat;"></div></a><br />
+            <a href="{{card.url}}" style="text-decoration: initial;color: black"><h3 style="margin: 0; padding: 13px;">{{card.title}}</h3></a>
+            <a href="{{card.url}}" style="text-decoration: initial;color: black"><p style="margin: 0; padding: 0 13px;">{{card.data}}</p></a>
+          </paper-material>
         </template>
       </sortable-list>
-      <h1>Sorted</h1>
-      <template is="dom-repeat" items="{{sortMe}}" as="card">
-        <div>{{card.title}}</div>
-      </template>
+      <update-data update="{{cards}}" data="{{sortMe}}"></update-data> 
 
       <h1>Create card</h1>
       <paper-input label="title" value="{{newCard.title}}"></paper-input><br>
@@ -43,8 +47,8 @@
       </template>
       
       <template is="dom-repeat" items="{{output}}" as="card">
+        <img src="{{card.image}}" /> <br />
         title {{card.title}}<br />
-        image {{card.image}}<br />
         url {{card.url}}<br />
         download {{card.download}}<br />
         data {{card.data}}<br />
