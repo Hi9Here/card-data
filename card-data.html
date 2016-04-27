@@ -32,7 +32,7 @@ exposes an array of cards
       /* user token if logged in */
       token: String
     },
-    addCard: function(card) {if (card && card.title && card.image && card.url && card.download && card.data) {
+    addCard: function(card) {if (card && card.title && card.url && card.data) {
       return this.$.c.push(card)
     }},
     deleteCard: function(index) {
