@@ -36,7 +36,7 @@ exposes an array of cards
       token: String
     },
     getCardPath: function(uid) {
-      return uid + "cards" 
+      return uid + "/cards" 
     },
     addCard: function(card) {if (card && card.title && card.url && card.data) {
       return this.$.c.push(card)
