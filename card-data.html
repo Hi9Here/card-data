@@ -19,7 +19,7 @@ exposes an array of cards
 -->
 <dom-module id="card-data">
   <template>
-    <mediator-data id="c" as-array="{{cards}}" url="{{url}}" folder="{{uid}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
+    <mediator-data id="c" as-array="{{cards}}" url="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
   </template>
 </dom-module>
 <script>
@@ -29,8 +29,14 @@ exposes an array of cards
       cards: {
         notify: true
       },
+      cardPath: {
+        computed:"getCardPath(uid)"
+      },
       /* user token if logged in */
       token: String
+    },
+    getCardPath: function(uid) {
+      return uid + "cards" 
     },
     addCard: function(card) {if (card && card.title && card.url && card.data) {
       return this.$.c.push(card)
