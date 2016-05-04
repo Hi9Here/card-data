@@ -51,11 +51,16 @@ exposes an array of cards
     getCardPath: function(uid) {
       return uid + "/cards" 
     },
-    addCard: function(card) {if (card && card.title && card.url && card.data) {
-      return this.$.c.push(card)
-    }},
+    addCard: function(card) {
+      if (card && card.title && card.url && card.data) {
+        return this.$.c.push(card)
+      }
+    },
     deleteCard: function(index) {
       return this.splice("cards", index, 1)
+    },
+    deal: function(card) {
+      return this.$.share.push(card)
     }
   })
 </script>
