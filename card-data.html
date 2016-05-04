@@ -20,12 +20,19 @@ exposes an array of cards
 <dom-module id="card-data">
   <template>
     <mediator-data id="c" as-array="{{cards}}" url="{{url}}" location="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
+    <mediator-data id="share" as-array="{{shareCards}}" url="{{shareUrl}}" location="{{shareUrl}}" folder="{{cardPath}}" token="{{token}}"></mediator-data>
   </template>
 </dom-module>
 <script>
   Polymer({
     is: "card-data",
     properties: {
+      shareUrl: {
+        computed: "getShareUrl(url)"
+      },
+      shareCards: {
+        notify: true
+      },
       cards: {
         notify: true
       },
@@ -34,6 +41,12 @@ exposes an array of cards
       },
       /* user token if logged in */
       token: String
+    },
+    getShareUrl: function(){
+      var path = this.url.split("/")
+      path.pop()
+      path.pop()
+      return path.join("/") + "/share/" + this.uid + "/card/"
     },
     getCardPath: function(uid) {
       return uid + "/cards" 
