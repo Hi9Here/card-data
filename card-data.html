@@ -28,7 +28,7 @@ exposes an array of cards
     is: "card-data",
     properties: {
       shareUrl: {
-        computed: "getShareUrl(url)"
+        computed: "getShareUrl(url, uid)"
       },
       shareCards: {
         notify: true
@@ -42,11 +42,11 @@ exposes an array of cards
       /* user token if logged in */
       token: String
     },
-    getShareUrl: function(){
-      var path = this.url.split("/")
+    getShareUrl: function(url, uid){
+      var path = url.split("/")
       path.pop()
       path.pop()
-      return path.join("/") + "/share/" + this.uid + "/card/"
+      return path.join("/") + "/share/" + uid + "/card/"
     },
     getCardPath: function(uid) {
       return uid + "/cards" 
