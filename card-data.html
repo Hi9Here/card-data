@@ -14,7 +14,7 @@ card-dealer
 <dom-module id="card-data">
   <template>
     <mediator-data id="c" as-array="{{cards}}" url="{{url}}" location="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
-    <mediator-data id="share" as-array="{{shareCards}}" url="{{shareUrl}}" location="{{shareUrl}}" folder="{{cardPath}}" token="{{token}}"></mediator-data>
+    <mediator-data id="share" as-array="{{sharedCards}}" url="{{shareUrl}}" location="{{shareUrl}}" folder="{{cardPath}}" token="{{token}}"></mediator-data>
   </template>
 </dom-module>
 <script>
@@ -24,7 +24,7 @@ card-dealer
       shareUrl: {
         computed: "getShareUrl(url, uid)"
       },
-      shareCards: {
+      sharedCards: {
         notify: true
       },
       cards: {
