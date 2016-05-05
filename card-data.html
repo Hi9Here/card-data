@@ -7,13 +7,7 @@
 - [✓] update
 - [✓] delete
 
-exposes an array of cards
-
-- Title
-- image
-- url
-- download
-- object associated with card
+card-dealer
 
 @demo demo.html
 -->
@@ -46,7 +40,7 @@ exposes an array of cards
       var path = url.split("/")
       path.pop()
       path.pop()
-      return path.join("/") + "/share/" + uid + "/card/"
+      return path.join("/") + "/share/"
     },
     getCardPath: function(uid) {
       return uid + "/cards" 
