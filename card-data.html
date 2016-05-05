@@ -38,9 +38,7 @@ card-dealer
     },
     getShareUrl: function(url, uid){
       var path = url.split("/")
-      path.pop()
-      path.pop()
-      return path.join("/") + "/share/"
+      return "https//" + path[2] + "/share/"
     },
     getCardPath: function(uid) {
       return uid + "/cards" 
