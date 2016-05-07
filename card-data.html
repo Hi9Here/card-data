@@ -14,7 +14,7 @@ card-dealer
 <dom-module id="card-data">
   <template>
     <mediator-data id="c" as-array="{{cards}}" on-put="{{onPut}}" url="{{url}}" location="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
-    <mediator-data id="share" as-array="{{sharedCards}}" url="{{shareUrl}}" location="{{shareUrl}}" folder="{{cardPath}}" token="{{token}}"></mediator-data>
+    <mediator-data id="share" data="{{shared}}" as-array="{{sharedCards}}" url="{{shareUrl}}" location="{{shareUrl}}" folder="{{cardPath}}" token="{{token}}"></mediator-data>
   </template>
 </dom-module>
 <script>
@@ -52,7 +52,7 @@ card-dealer
       return this.splice("cards", index, 1)
     },
     deal: function(card) {
-      return this.$.share.push(card)
+      return this.$.share[card.url] = card
     }
   })
 </script>
