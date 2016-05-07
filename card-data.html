@@ -47,6 +47,9 @@ card-dealer
       return this.splice("cards", index, 1)
     },
     deal: function(card) {
+      if (!this.shared) {
+        this.shared = {}
+      }
       this.set("shared."+this.$.share.hash(card.url), card)
     }
   })
