@@ -20,6 +20,9 @@ card-dealer
       shareUrl: {
         computed: "getShareUrl(url, uid)"
       },
+      playerUrl: {
+        computed: "getPlayerUrl(url, uid)"
+      },
       sharedCards: {
         notify: true
       },
@@ -37,6 +40,10 @@ card-dealer
       },
       /* user token if logged in */
       token: String
+    },
+    getPlayerUrl: function(url, uid){
+      var path = url.split("/")
+      return "https://" + path[2] + "/players/"
     },
     getShareUrl: function(url, uid){
       var path = url.split("/")
