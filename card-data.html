@@ -8,8 +8,9 @@ card-dealer
 -->
 <dom-module id="card-data">
   <template>
-    <mediator-data id="c" as-array="{{cards}}" on-put="{{onPut}}" url="{{url}}" location="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
-    <mediator-data id="share" data="{{shared}}" as-array="{{sharedCards}}" url="{{shareUrl}}" location="{{shareUrl}}" folder="{{cardPath}}" token="{{token}}"></mediator-data>
+    <mediator-data id="cards" as-array="{{cards}}" on-put="{{onPut}}" url="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
+    <mediator-data id="share" data="{{shared}}" as-array="{{sharedCards}}" url="{{shareUrl}}" folder="{{cardPath}}" token="{{token}}" default-folder=""></mediator-data>
+    <mediator-data id="players" data="{{players}}" as-array="{{playerCards}}" url="{{playerUrl}}" folder="{{playerPath}}" token="{{token}}" default-folder=""></mediator-data>
   </template>
 </dom-module>
 <script>
@@ -25,6 +26,9 @@ card-dealer
       cards: {
         notify: true
       },
+      playerPath: {
+        computed:"getPlayerPath(uid)"
+      },
       cardPath: {
         computed:"getCardPath(uid)"
       },
@@ -38,9 +42,12 @@ card-dealer
     getCardPath: function(uid) {
       return uid + "/cards" 
     },
+    getPlayerPath: function(uid) {
+      return uid + "/players"
+    },
     addCard: function(card) {
       if (card && card.title && card.url && card.data) {
-        return this.$.c.push(card)
+        return this.$.cards.push(card)
       }
     },
     deleteCard: function(index) {
