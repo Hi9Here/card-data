@@ -70,7 +70,7 @@ card-dealer
       if (!this.shared) {
         this.shared = {}
       }
-      this.set("shared."+this.hash(card.card.url), card)
+      this.set("shared."+this.hash(card.url), card)
     },
     hash: function(it) {
       return this.$.share.hash(it)
