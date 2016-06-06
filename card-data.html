@@ -59,7 +59,7 @@ card-dealer
       return uid + "/players"
     },
     addCard: function(card) {
-      if (card && card.title && card.url && card.data) {
+      if (card && card.title && card.url && card._data) {
         return this.$.cards.push(card)
       }
     },
