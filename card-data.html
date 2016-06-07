@@ -58,11 +58,6 @@ card-dealer
     getPlayerPath: function(uid) {
       return uid + "/players"
     },
-    addCard: function(card) {
-      if (card && card.title && card.url && card._data) {
-        return this.$.cards.push(card)
-      }
-    },
     deleteCard: function(index) {
       return this.splice("cards", index, 1)
     },
