@@ -8,7 +8,8 @@ card-dealer
 -->
 <dom-module id="card-data">
   <template>
-    <mediator-data id="cards" name="{{name}}" as-array="{{cards}}" keep='["_html"]' drop='["_html"]' on-put="{{onPut}}" url="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
+    <iron-localstorage name="cardsAsArray" value="{{cards}}"></iron-localstorage>
+    <mediator-data id="cards" as-array="{{cards}}" keep='["_html"]' drop='["_html"]' on-put="{{onPut}}" url="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
     <mediator-data id="share" data="{{shared}}" as-array="{{sharedCards}}" url="{{shareUrl}}" folder="{{cardPath}}" default-folder="default" token="{{token}}"></mediator-data>
     <mediator-data id="players" as-array="{{playerCards}}" url="{{playerUrl}}" folder="{{playerPath}}" token="{{token}}"></mediator-data>
   </template>
@@ -17,31 +18,15 @@ card-dealer
   Polymer({
     is: "card-data",
     properties: {
-      shareUrl: {
-        computed: "getShareUrl(url, uid)"
-      },
-      playerUrl: {
-        computed: "getPlayerUrl(url, uid)"
-      },
-      sharedCards: {
-        notify: true
-      },
-      shared: {
-        notify: true
-      },
-      cards: {
-        notify: true
-      },
-      playerCards: {
-        notify: true
-      },
-      playerPath: {
-        computed:"getPlayerPath(uid)"
-      },
-      cardPath: {
-        computed:"getCardPath(uid)"
-      },
-      /* user token if logged in */
+      sharedCards: {notify: true},
+      shared: {notify: true},
+      cards: {notify: true},
+      playerCards: {notify: true},
+      /* if logged in */
+      shareUrl: {computed: "getShareUrl(url, uid)"},
+      playerUrl: {computed: "getPlayerUrl(url, uid)"},
+      playerPath: {computed:"getPlayerPath(uid)"},
+      cardPath: {computed:"getCardPath(uid)"},
       token: String
     },
     getPlayerUrl: function(url, uid){
