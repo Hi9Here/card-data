@@ -9,7 +9,8 @@ card-dealer
 -->
 <dom-module id="card-data">
   <template>
-    <mediator-data id="cards" as-array="{{cards}}" keep='["_html"]' drop='["_html"]' on-put="{{onPut}}" url="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
+    <iron-localstorage name="your_cards" data="{{cardData}}" ></iron-localstorage>
+    <mediator-data id="cards" data="{{cardData}}" as-array="{{cards}}" keep='["_html"]' drop='["_html"]' on-put="{{onPut}}" url="{{url}}" folder="{{cardPath}}" default-folder="default/card-data" token="{{token}}"></mediator-data>
     <mediator-data id="share" data="{{shared}}" as-array="{{sharedCards}}" url="{{shareUrl}}" folder="{{cardPath}}" default-folder="default" token="{{token}}"></mediator-data>
     <mediator-data id="players" as-array="{{playerCards}}" url="{{playerUrl}}" folder="{{playerPath}}" token="{{token}}"></mediator-data>
   </template>
